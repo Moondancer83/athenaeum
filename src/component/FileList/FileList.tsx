@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import DeleteIcon from "@material-ui/icons/Delete";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import IconButton from "@material-ui/core/IconButton";
+import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 
 import FileContext from "../contexts/FileContext";
 
@@ -19,6 +20,7 @@ export default function FileList() {
     <Table>
       <TableHead>
         <TableRow>
+          <TableCell />
           <TableCell>Name</TableCell>
           <TableCell align={"right"}>Owner</TableCell>
           <TableCell align={"right"}>Last modified</TableCell>
@@ -29,6 +31,9 @@ export default function FileList() {
       <TableBody>
         {files.map(file => (
           <TableRow key={file.name}>
+            <TableCell align={"center"}>
+              <InsertDriveFileIcon htmlColor={"rgba(0, 0, 0, 0.54)"} />
+            </TableCell>
             <TableCell>{file.name}</TableCell>
             <TableCell align={"right"}>{file.owner}</TableCell>
             <TableCell align={"right"}>{file.modifiedAt.toLocaleDateString()}</TableCell>
