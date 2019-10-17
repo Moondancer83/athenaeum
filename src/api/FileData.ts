@@ -1,6 +1,6 @@
 export default interface FileData {
-    name: string,
-    owner: string,
-    modifiedAt: Date,
-    size: number
+  name: string;
+  owner: string;
+  modifiedAt: Date;
+  size: number;
 }
