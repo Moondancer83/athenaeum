@@ -7,7 +7,7 @@ import CustomProviderProps from "./CustomProviderProps";
 let FileContext: React.Context<FileData[]>;
 const { Provider } = (FileContext = React.createContext<FileData[]>([]));
 
-function FileProvider(props: CustomProviderProps) {
+function FileProvider(props: CustomProviderProps): React.ReactElement {
   const [files, setFiles] = React.useState<FileData[]>([]);
 
   React.useEffect(() => {

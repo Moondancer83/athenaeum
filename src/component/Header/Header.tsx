@@ -10,7 +10,7 @@ import AppsIcon from "@material-ui/icons/Apps";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 
-export default function Header() {
+export default function Header(): React.ReactElement {
   return (
     <AppBar>
       <Toolbar variant={"dense"}>

@@ -5,12 +5,24 @@ import Paper from "@material-ui/core/Paper";
 
 import FileList from "../FileList/FileList";
 
-export default function Main() {
+export default function Main(): React.ReactElement {
   return (
-    <Container maxWidth={"lg"} style={{ marginTop: 48, paddingTop: 16 }}>
-      <Paper>
-        <FileList />
-      </Paper>
-    </Container>
+    <main
+      style={{
+        position: "fixed",
+        width: "100%",
+        height: "calc(100% - 48px - 32px)",
+        marginTop: "48px",
+        paddingTop: 16,
+        paddingBottom: 16,
+        overflowY: "auto"
+      }}
+    >
+      <Container maxWidth={"lg"} style={undefined}>
+        <Paper>
+          <FileList />
+        </Paper>
+      </Container>
+    </main>
   );
 }
