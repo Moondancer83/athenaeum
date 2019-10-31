@@ -1,0 +1,10 @@
+# JetBrains
+.idea
+out
+
+# Gradle
+.gradle
+build
+
+# NodeJs
+node_modules
