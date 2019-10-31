@@ -1,7 +1,7 @@
 export default interface FileData {
   id: number;
+  modifiedAt: Date;
   name: string;
   owner: string;
-  modifiedAt: Date;
   size: number;
 }

@@ -1,5 +1,11 @@
 {
+  "env": {
+    "browser": 1
+  },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react/recommended", "prettier"],
+  "globals": {
+    "XMLHttpRequest": "readonly"
+  },
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"]

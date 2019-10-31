@@ -6,12 +6,21 @@ import IconButton from "@material-ui/core/IconButton";
 
 import FileData from "../../api/FileData";
 
+const KILO = 1024;
+const MEGA: number = KILO * KILO;
+
 export const columns = [
   "ID",
   "NAME",
   "OWNER",
   "MODIFICATION DATE",
-  "SIZE",
+  {
+    name: "SIZE",
+    options: {
+      customBodyRender: (value: number) =>
+        value >= MEGA ? (value / MEGA).toLocaleString("en-US", {maximumFractionDigits: 2}) + " MB" : value >= KILO ? (value / KILO).toLocaleString("en-US", {maximumFractionDigits: 2}) + " KB" : value + " B"
+    }
+  },
   {
     name: "ACTIONS",
     options: {

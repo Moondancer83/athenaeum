@@ -1,8 +1,9 @@
 import * as React from "react";
 
 import FileData from "../../api/FileData";
-import initFilesData from "../../api/initFilesData";
 import CustomProviderProps from "./CustomProviderProps";
+import fileResources from "../../api/fileResources";
+import DocumentListConverter from "./DocumentListConverter";
 
 let FileContext: React.Context<FileData[]>;
 const { Provider } = (FileContext = React.createContext<FileData[]>([]));
@@ -10,11 +11,18 @@ const { Provider } = (FileContext = React.createContext<FileData[]>([]));
 function FileProvider(props: CustomProviderProps): React.ReactElement {
   const [files, setFiles] = React.useState<FileData[]>([]);
 
+  const fetch = () => {
+    fileResources.list(e => {
+      const files: FileData[] = e._embedded.documents.map(DocumentListConverter);
+      setFiles(files);
+    });
+  };
+
   React.useEffect(() => {
-    if (files.length < 15) {
-      setTimeout(() => {
-        setFiles(files.concat(initFilesData));
-      }, 1000);
+    if (files.length) {
+      setTimeout(fetch, 5000);
+    } else {
+      fetch();
     }
   });
 
