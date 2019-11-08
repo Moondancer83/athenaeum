@@ -4,26 +4,22 @@ import java.util.Date;
 
 public class Document {
 
-    private Long id;
     private String name;
     private long size;
     private String owner;
     private Date modifiedAt;
     private byte[] data;
+    private String url;
 
     public Document() {
     }
 
-    public Document(final String name, final byte[] data, final String owner) {
+    public Document(final String name, final byte[] data) {
         this.name = name;
         this.size = data.length;
-        this.owner = owner;
         this.data = data;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -64,4 +60,14 @@ public class Document {
     public void setData(final byte[] data) {
         this.data = data;
     }
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(final String url) {
+        this.url = url;
+    }
+
 }

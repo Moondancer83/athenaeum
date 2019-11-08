@@ -28,7 +28,7 @@ class AthenaeumApplicationTests {
 				.build());
 
 		String objectName = "test_vio";
-		String result = service.upload(new Document(objectName, content, "me"));
+		String result = service.upload(new Document(objectName, content));
 
 		System.out.println("Done: " + result);
 
