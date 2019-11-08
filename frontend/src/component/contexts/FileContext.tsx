@@ -12,8 +12,8 @@ function FileProvider(props: CustomProviderProps): React.ReactElement {
   const [files, setFiles] = React.useState<FileData[]>([]);
 
   const fetch = () => {
-    fileResources.list(e => {
-      const files: FileData[] = e._embedded.documents.map(DocumentListConverter);
+    fileResources.list((e: FileData[]) => {
+      const files: FileData[] = e.map(DocumentListConverter);
       setFiles(files);
     });
   };

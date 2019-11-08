@@ -1,11 +1,7 @@
 package com.kalee.athenaeum.controller;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
-
-import com.kalee.athenaeum.data.Document;
-import com.kalee.athenaeum.data.S3Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +12,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kalee.athenaeum.data.Document;
+import com.kalee.athenaeum.data.S3Service;
+
 @RestController
 public class DocumentController {
 
-   @Autowired
-   private S3Service s3Service;
+    @Autowired
+    private S3Service s3Service;
 
 
     @GetMapping("/api/documents")
     @ResponseBody
     public List<Document> list() {
-        return Collections.emptyList();
+        return s3Service.list();
     }
 
     @GetMapping("/api/documents/{id:.+}")
@@ -41,7 +40,7 @@ public class DocumentController {
     @ResponseBody
     public Document upload(@RequestParam("file") MultipartFile file) throws IOException {
         Document doc = new Document(file.getName(), file.getBytes());
-        String docUrl  = s3Service.upload(doc);
+        String docUrl = s3Service.upload(doc);
         doc.setUrl(docUrl);
         return doc;
 

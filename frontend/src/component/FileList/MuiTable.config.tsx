@@ -18,7 +18,11 @@ export const columns = [
     name: "SIZE",
     options: {
       customBodyRender: (value: number) =>
-        value >= MEGA ? (value / MEGA).toLocaleString("en-US", {maximumFractionDigits: 2}) + " MB" : value >= KILO ? (value / KILO).toLocaleString("en-US", {maximumFractionDigits: 2}) + " KB" : value + " B"
+        value >= MEGA
+          ? (value / MEGA).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " MB"
+          : value >= KILO
+          ? (value / KILO).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " KB"
+          : value + " B"
     }
   },
   {

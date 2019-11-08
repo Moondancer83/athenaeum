@@ -1,6 +1,7 @@
 package com.kalee.athenaeum;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,5 +35,10 @@ class AthenaeumApplicationTests {
 
 		Document document = service.retrieve("broken flask.jpg");
 		System.out.println(new String(document.getData()));
+
+		List<Document> docs = service.list();
+		for (Document doc: docs){
+			System.out.println(doc.getName()+" "+doc.getOwner()  + " "+doc.getSize() + " "+ doc.getModifiedAt());
+		}
 	}
 }
