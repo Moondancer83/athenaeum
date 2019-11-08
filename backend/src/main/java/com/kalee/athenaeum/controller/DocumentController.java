@@ -30,9 +30,9 @@ public class DocumentController {
 
     @GetMapping("/api/documents/{id:.+}")
     @ResponseBody
-    public byte[] download(@PathVariable(required = true) String objectName) {
+    public byte[] download(@PathVariable(required = true) String id) {
         // I use the object name as ID for the moment
-        return s3Service.retrieve(objectName).getData();
+        return s3Service.retrieve(id).getData();
 
     }
 
