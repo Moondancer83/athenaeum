@@ -1,2 +1,19 @@
+@apiKey = 8mziIjyyu5aauU4U7yPXq5NlRcxGccBz4fKH4bfW
 GET https://73jp9q7lc6.execute-api.eu-west-1.amazonaws.com/prod/api/documents HTTP/1.1
-x-api-key: 8mziIjyyu5aauU4U7yPXq5NlRcxGccBz4fKH4bfW
+x-api-key: {{apiKey}}
+
+###
+
+GET https://73jp9q7lc6.execute-api.eu-west-1.amazonaws.com/prod/actuator/info HTTP/1.1
+x-api-key: {{apiKey}}
+
+###
+
+GET https://73jp9q7lc6.execute-api.eu-west-1.amazonaws.com/prod/api/documents/test.txt HTTP/1.1
+x-api-key: {{apiKey}}
+Content-Type: application/octet-stream
+
+###
+
+OPTIONS https://73jp9q7lc6.execute-api.eu-west-1.amazonaws.com/prod/api/documents HTTP/1.1
+x-api-key: {{apiKey}}
