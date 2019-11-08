@@ -39,6 +39,7 @@ public class DocumentController {
     @ResponseBody
     public byte[] download(@PathVariable(required = true) String id) {
         // I use the object name as ID for the moment
+        logger.info("download: {}", id);
         return s3Service.retrieve(id).getData();
 
     }
@@ -46,7 +47,8 @@ public class DocumentController {
     @PostMapping("/api/documents")
     @ResponseBody
     public Document upload(@RequestParam("file") MultipartFile file) throws IOException {
-        Document doc = new Document(file.getName(), file.getBytes());
+        Document doc = new Document(file.getOriginalFilename(), file.getBytes());
+        logger.info("upload: {}", doc);
         String docUrl = s3Service.upload(doc);
         doc.setUrl(docUrl);
         return doc;

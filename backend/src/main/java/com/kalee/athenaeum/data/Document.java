@@ -70,4 +70,10 @@ public class Document {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Document [modifiedAt=" + modifiedAt + ", name=" + name + ", owner=" + owner + ", size=" + size
+                + ", url=" + url + "]";
+    }
+
 }
