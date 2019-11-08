@@ -6,9 +6,10 @@ export default class BaseResources {
   public static call(
     method: string,
     url: string,
-    onLoadEnd: (e: ProgressEvent<EventTarget>) => void,
-    onLoadStart?: (e: ProgressEvent<EventTarget>) => void,
-    onProgress?: (e: ProgressEvent<EventTarget>) => void
+    onLoadEnd: (e: ProgressEvent<any>) => void,
+    params?: any,
+    onLoadStart?: (e: ProgressEvent<any>) => void,
+    onProgress?: (e: ProgressEvent<any>) => void
   ): void {
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
@@ -21,6 +22,15 @@ export default class BaseResources {
     }
     xhr.onloadend = onLoadEnd;
 
-    xhr.send();
+    xhr.send(params);
   }
+}
+
+export function isJSON(str: string) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
