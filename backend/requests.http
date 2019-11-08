@@ -1,0 +1,2 @@
+GET https://73jp9q7lc6.execute-api.eu-west-1.amazonaws.com/prod/api/documents HTTP/1.1
+x-api-key: 8mziIjyyu5aauU4U7yPXq5NlRcxGccBz4fKH4bfW
