@@ -2,27 +2,13 @@ package com.kalee.athenaeum.data;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-
-import org.hibernate.annotations.CreationTimestamp;
-
-@Entity
 public class Document {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private Long id;
     private String name;
     private long size;
     private String owner;
-    @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Date modifiedAt;
-    @Lob
     private byte[] data;
 
     public Document() {

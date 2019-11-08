@@ -8,3 +8,6 @@ build
 
 # NodeJs
 node_modules
+.settings
+.vscode
+bin
