@@ -19,11 +19,7 @@ function FileProvider(props: CustomProviderProps): React.ReactElement {
   };
 
   React.useEffect(() => {
-    if (files.length) {
-      setTimeout(fetch, 5000);
-    } else {
-      fetch();
-    }
+    setTimeout(fetch, 5000);
   });
 
   return <Provider value={files}>{props.children}</Provider>;
